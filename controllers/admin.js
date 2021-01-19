@@ -216,6 +216,22 @@ exports.postEditProduct = (req, res, next) => {
 
 }
 
+exports.postDeleteBayi = (req, res, next) => {
+    console.log(req.body.bayi);
+    const id = req.body.bayi;
+
+    Bayi.deleteOne({ _id: id, userId: req.user._id })
+        .then((result) => {
+            if (result.deletedCount === 0) {
+                return res.redirect('/');
+            }
+            res.redirect('/admin/bayi?action=delete');
+        })
+        .catch(err => {
+            console.log(err);
+        });
+}
+
 exports.postDeleteProduct = (req, res, next) => {
 
     const id = req.body.productid;

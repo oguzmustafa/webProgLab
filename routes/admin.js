@@ -25,8 +25,10 @@ router.post('/add-bayi',locals,isAdmin,adminController.postAddBayi);
 router.get('/bayi/:bayi',locals,isAdmin,adminController.getEditBayi);
 
 router.post('/bayi',locals,isAdmin,adminController.postEditBayi);
-                                    
+
 router.post('/delete-product', locals, isAdmin, adminController.postDeleteProduct);
+
+router.post('/delete-bayi', locals, isAdmin, adminController.postDeleteBayi);
 
 router.get('/add-category', locals, isAdmin, adminController.getAddCategory);
 

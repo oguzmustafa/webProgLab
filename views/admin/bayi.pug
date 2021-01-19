@@ -14,6 +14,7 @@ block content
                     th Bayi adı
                     th(style="width:150px;") Bayi No
                     th Yetkili kişi
+                    th Adres
                     th(style="width:140px;")
             tbody
                 each bay in bayi
@@ -21,12 +22,13 @@ block content
                         td #{bay.name}
                         td #{bay.no}
                         td #{bay.userId.name}
+                        td #{bay.description}
                         td 
                             a.btn.btn-primary.btn-sm.mr-2(href=`/admin/bayi/${bay._id}`) Düzenle
 
                             form(action='/admin/delete-bayi' method='POST')
                                 input(type="hidden" name="_csrf" value=`${csrfToken}`)
-                                input(type='hidden' name='productid' value=`${bayi._id}`)
+                                input(type='hidden' name='productid' value=`${bay._id}`)
                                 button(type='submit').btn.btn-danger.btn-sm Sil
     else
         h1 Bayi yok
