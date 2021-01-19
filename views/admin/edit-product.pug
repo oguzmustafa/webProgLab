@@ -9,29 +9,29 @@ block content
         input(type="hidden" name="id" value=`${product._id}`)
 
         .form-group.row
-            label(for="name").col-sm-2.col-form-label Product Name
+            label(for="name").col-sm-2.col-form-label Ürün adı
             .col-sm-10
                 input.form-control#name(type="text" name="name"  value=`${product.name}`)  
 
         .form-group.row
-            label(for="price").col-sm-2.col-form-label Price
+            label(for="price").col-sm-2.col-form-label Fiyat
             .col-sm-10
                 input.form-control#price(type="text" name="price"  value=`${product.price}`) 
 
         .form-group.row
-            label(for="imageUrl").col-sm-2.col-form-label Image
+            label(for="imageUrl").col-sm-2.col-form-label Resim
             .col-sm-10
                 input.form-control#image(type="text" name="imageUrl"  value=`${product.imageUrl}`) 
 
         .form-group.row
-            label(for="categoryid").col-sm-2.col-form-label Category
+            label(for="categoryid").col-sm-2.col-form-label Kategori
             .col-sm-10
                  each category in categories
                     input(type="checkbox" name="categoryids" value=`${category._id}` checked=category.selected) 
                     | #{category.name}
                     br
         .form-group.row
-            label(for="description").col-sm-2.col-form-label Description
+            label(for="description").col-sm-2.col-form-label Açıklama
             .col-sm-10
                 textarea.form-control(name="description" cols="30" rows="10") #{product.description}
 

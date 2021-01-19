@@ -72,6 +72,7 @@ exports.postAddBayi = (req, res, next) => {
 }
 
 exports.getEditBayi = (req, res, next) => {
+    console.log(req.params.bayi,req.user._id)
     Bayi.findOne(
         { _id: req.params.bayi, userId: req.user._id })
         .then(bayi => {
@@ -81,30 +82,12 @@ exports.getEditBayi = (req, res, next) => {
             return bayi;
         })
         .then(bayi => {
-            Category.find()
-                .then(categories => {
-
-                    categories = categories.map(category => {
-                        if (bayi.categories) {
-                            bayi.categories.find(item => {
-                                if (item.toString() === category._id.toString()) {
-                                    category.selected = true;
-                                }
-                            })
-                        }
-                        return category;
-                    })
-
-                    res.render('admin/edit-bayi', {
-                        title: 'Bayi düzenle',
-                        path: '/admin/bayi',
-                        bayi: bayi,
-                        isAuthenticated: req.session.isAuthenticated
-                    });
-
-
-                })
-
+            res.render('admin/edit-bayi', {
+                title: 'Bayi düzenle',
+                path: '/admin/bayi',
+                bayi: bayi,
+                isAuthenticated: req.session.isAuthenticated
+            });
         })
         .catch(err => { console.log(err) });
 }
@@ -112,11 +95,14 @@ exports.getEditBayi = (req, res, next) => {
 exports.postEditBayi = (req, res, next) => {
 
     const id = req.body.id;
+    const name = req.body.name;
     const no = req.body.no;
     const description = req.body.description;
     const ids = req.body.categoryids;
 
-    Product.update({ _id: id, userId: req.user._id }, {
+    console.log(req.body);
+
+    Bayi.updateOne({ _id: id, userId: req.user._id }, {
         $set: {
             name: name,
             no: no,
@@ -164,7 +150,6 @@ exports.postAddProduct = (req, res, next) => {
 }
 
 exports.getEditProduct = (req, res, next) => {
-
     Product.findOne(
         { _id: req.params.productid, userId: req.user._id })
         //.populate('categories', 'name -_id')

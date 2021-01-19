@@ -22,9 +22,9 @@ router.get('/add-bayi',locals,isAdmin,adminController.getAddBayi);
 
 router.post('/add-bayi',locals,isAdmin,adminController.postAddBayi);
 
-//router.get('/bayi/:bayid',locals.isAdmin,adminController.getEditBayi)
+router.get('/bayi/:bayi',locals,isAdmin,adminController.getEditBayi);
 
-//router.post('bayi',locals,isAdmin,adminController.postEditBayi);
+router.post('/bayi',locals,isAdmin,adminController.postEditBayi);
                                     
 router.post('/delete-product', locals, isAdmin, adminController.postDeleteProduct);
 

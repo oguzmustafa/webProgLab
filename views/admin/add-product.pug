@@ -7,17 +7,17 @@ block content
     form(action="/admin/add-product" method="POST")
         input(type="hidden" name="_csrf" value=`${csrfToken}`)
         .form-group.row
-            label(for="name").col-sm-2.col-form-label Product Name
+            label(for="name").col-sm-2.col-form-label Ürün adı
             .col-sm-10
                 input.form-control#name(type="text" name="name")  
 
         .form-group.row
-            label(for="price").col-sm-2.col-form-label Price
+            label(for="price").col-sm-2.col-form-label Fiyatı
             .col-sm-10
                 input.form-control#price(type="text" name="price") 
 
         .form-group.row
-            label(for="imageUrl").col-sm-2.col-form-label Image
+            label(for="imageUrl").col-sm-2.col-form-label Resmi
             .col-sm-10
                 input.form-control#image(type="text" name="imageUrl") 
 
@@ -30,7 +30,7 @@ block content
         //-                 option(value=`${category.id}`) #{category.name}
 
         .form-group.row
-            label(for="description").col-sm-2.col-form-label Description
+            label(for="description").col-sm-2.col-form-label Açıklaması
             .col-sm-10
                 textarea.form-control(name="description" cols="30" rows="10") 
                 
